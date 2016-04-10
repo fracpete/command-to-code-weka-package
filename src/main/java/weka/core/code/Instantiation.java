@@ -51,17 +51,17 @@ public class Instantiation
    */
   @Override
   public boolean handles(String cmd) {
-    return (convert(cmd) != null);
+    return (convert(cmd, true) != null);
   }
 
   /**
    * Converts the command.
    *
    * @param cmd the command to convert.
+   * @param quiet suppresses exceptions if true
    * @return the generated code or null in case of an error
    */
-  @Override
-  public String convert(String cmd) {
+  protected String convert(String cmd, boolean quiet) {
     String	result;
     String[]	options;
     String	cmdOptions;
@@ -82,10 +82,23 @@ public class Instantiation
       }
     }
     catch (Exception e) {
-      System.err.println("Failed to process command-line: " + cmd);
-      e.printStackTrace();
+      if (!quiet) {
+	System.err.println("Failed to process command-line: " + cmd);
+	e.printStackTrace();
+      }
     }
 
     return result;
+  }
+
+  /**
+   * Converts the command.
+   *
+   * @param cmd the command to convert.
+   * @return the generated code or null in case of an error
+   */
+  @Override
+  public String convert(String cmd) {
+    return convert(cmd, false);
   }
 }
