@@ -204,7 +204,7 @@ public class CommandToCodePanel
     if (cmd.trim().length() == 0) {
       ComponentHelper.showMessageBox(
 	this, "Error", "No command line to convert!",
-	JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+	JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
       return;
     }
 
@@ -212,7 +212,7 @@ public class CommandToCodePanel
     if (!conv.handles(cmd)) {
       ComponentHelper.showMessageBox(
 	this, "Error", "Command-line cannot be processed by the '" + conv.getName() + "' converter!",
-	JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+	JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
       return;
     }
 
