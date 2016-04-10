@@ -1,4 +1,4 @@
-package weka.gui;/*
+/*
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -17,6 +17,8 @@ package weka.gui;/*
  * weka.gui.CommandToCodeMenuItem.java
  * Copyright (C) 2016 University of Waikato, Hamilton, NZ
  */
+
+package weka.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -81,7 +83,7 @@ public class CommandToCode
    */
   @Override
   public void fillFrame(Component frame) {
-    CommandToCodePanel	panel;
+    CommandToCodePanel panel;
 
     panel = new CommandToCodePanel();
     if (frame instanceof JFrame) {
