@@ -40,8 +40,11 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * The user interface for converting command-lines to code snippets.
@@ -51,6 +54,93 @@ import java.awt.event.ActionListener;
  */
 public class CommandToCodePanel
   extends JPanel {
+
+  /**
+   * A container for strings. Used in drag'n'drop.
+   *
+   * @author  fracpete (fracpete at waikato dot ac dot nz)
+   * @version $Revision: 4584 $
+   */
+  public static class TransferableString
+    implements Serializable, Transferable {
+
+    /** for serialization. */
+    private static final long serialVersionUID = -4291529156857201031L;
+
+    /** the string to transfer. */
+    protected String m_Data;
+
+    /**
+     * Initializes the container.
+     *
+     * @param data	the string to transfer
+     */
+    public TransferableString(String data) {
+      super();
+
+      m_Data = data;
+    }
+
+    /**
+     * Returns an array of DataFlavor objects indicating the flavors the data
+     * can be provided in.  The array should be ordered according to preference
+     * for providing the data (from most richly descriptive to least descriptive).
+     *
+     * @return 		an array of data flavors in which this data can be transferred
+     */
+    public DataFlavor[] getTransferDataFlavors() {
+      return new DataFlavor[]{DataFlavor.stringFlavor};
+    }
+
+    /**
+     * Returns whether or not the specified data flavor is supported for
+     * this object.
+     *
+     * @param flavor 	the requested flavor for the data
+     * @return 		boolean indicating whether or not the data flavor is supported
+     */
+    public boolean isDataFlavorSupported(DataFlavor flavor) {
+      return (flavor.equals(DataFlavor.stringFlavor));
+    }
+
+    /**
+     * Returns an object which represents the data to be transferred.  The class
+     * of the object returned is defined by the representation class of the flavor.
+     *
+     * @param flavor 		the requested flavor for the data
+     * @return			the transferred string
+     * @throws IOException        if the data is no longer available
+     *              		in the requested flavor.
+     * @throws UnsupportedFlavorException        if the requested data flavor is
+     *              				not supported.
+     * @see DataFlavor#getRepresentationClass
+     */
+    public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+      if (flavor.equals(DataFlavor.stringFlavor))
+	return m_Data;
+      else
+	throw new UnsupportedFlavorException(flavor);
+    }
+
+    /**
+     * Returns the underlying data string.
+     *
+     * @return		the data string
+     */
+    public String getData() {
+      return m_Data;
+    }
+
+    /**
+     * Returns the underlying data string.
+     *
+     * @return		the data string
+     * @see		#m_Data
+     */
+    public String toString() {
+      return m_Data;
+    }
+  }
 
   /** the available conversion schemes. */
   protected Converter[] m_Converters;
@@ -224,7 +314,7 @@ public class CommandToCodePanel
    *
    * @return		the obtained string, null if not available
    */
-  protected static String pasteStringFromClipboard() {
+  protected String pasteStringFromClipboard() {
     Clipboard clipboard;
     String		result;
     Transferable content;
@@ -249,10 +339,15 @@ public class CommandToCodePanel
    *
    * @param s		the string to copy
    */
-  protected static void copyToClipboard(String s) {
+  protected void copyToClipboard(String s) {
     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new TransferableString(s), null);
   }
 
+  /**
+   * Just for testing.
+   *
+   * @param args ignored
+   */
   public static void main(String[] args) {
     CommandToCodePanel panel = new CommandToCodePanel();
     JFrame frame = new JFrame("Command to code");
