@@ -14,7 +14,7 @@
  */
 
 /**
- * JavaString.java
+ * Instantiation.java
  * Copyright (C) 2016 University of Waikato, Hamilton, NZ
  */
 
