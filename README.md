@@ -2,7 +2,7 @@ command-to-code-weka-package
 ============================
 
 Adds a menu item to the GUIChooser's main menu for converting command-lines
-into code snippets.
+into code snippets (under **Extensions**).
 
 
 Available converters
