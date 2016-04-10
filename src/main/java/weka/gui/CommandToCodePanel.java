@@ -23,6 +23,7 @@ package weka.gui;
 import weka.core.code.AbstractConverter;
 import weka.core.code.Converter;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -115,13 +116,14 @@ public class CommandToCodePanel
 
     // command
     m_PanelCommand = new JPanel(new BorderLayout());
+    m_PanelCommand.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     add(m_PanelCommand);
-    panel = new JPanel(new BorderLayout());
+    panel = new JPanel(new BorderLayout(0, 0));
     m_PanelCommand.add(panel);
     m_LabelCommand = new JLabel("Command-line");
     m_TextCommand = new JTextArea();
     m_TextCommand.setFont(new Font("monospaced", Font.PLAIN, 12));
-    panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
     panel.add(panel2, BorderLayout.NORTH);
     panel2.add(m_LabelCommand);
     panel.add(new JScrollPane(m_TextCommand), BorderLayout.CENTER);
@@ -157,14 +159,15 @@ public class CommandToCodePanel
 
     // code
     m_PanelCode = new JPanel(new BorderLayout());
+    m_PanelCode.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     add(m_PanelCode);
-    panel = new JPanel(new BorderLayout());
+    panel = new JPanel(new BorderLayout(0, 0));
     m_PanelCode.add(panel);
     m_LabelCode = new JLabel("Generated code");
     m_TextCode = new JTextArea();
     m_TextCode.setFont(new Font("monospaced", Font.PLAIN, 12));
     m_TextCode.setEditable(false);
-    panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
     panel.add(panel2, BorderLayout.NORTH);
     panel2.add(m_LabelCode);
     panel.add(new JScrollPane(m_TextCode), BorderLayout.CENTER);
