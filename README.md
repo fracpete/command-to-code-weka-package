@@ -8,8 +8,11 @@ into code snippets.
 Available converters
 --------------------
 
+* **Instantiation** -- instantiates an object specified by the command-line
+  and sets its options (if a `weka.core.OptionHandler`).
 * **Java String** -- simply escapes the command-line and generates a statement 
   using a String.
+* **String Array** -- fills a String array with the options from the command.
 
 
 Releases
