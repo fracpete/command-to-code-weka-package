@@ -22,6 +22,7 @@ Releases
 
 Click on one of the following links to download the corresponding Weka package:
 
+* [2016.4.11](https://github.com/fracpete/command-to-code-weka-package/releases/download/v2016.4.11/command-to-code-2016.4.11.zip)
 * [2016.4.10](https://github.com/fracpete/command-to-code-weka-package/releases/download/v2016.4.10/command-to-code-2016.4.10.zip)
 
 
