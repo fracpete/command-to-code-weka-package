@@ -36,6 +36,8 @@ import java.util.Vector;
 public abstract class AbstractConverter
   implements Converter {
 
+  private static final long serialVersionUID = -6961593275957244187L;
+
   /**
    * Just uses the name to compare the conversion schemes.
    *

@@ -31,6 +31,8 @@ import weka.core.Utils;
 public class StringArray
   extends AbstractConverter {
 
+  private static final long serialVersionUID = 684439147675462945L;
+
   /**
    * Returns the name of the conversion scheme.
    *

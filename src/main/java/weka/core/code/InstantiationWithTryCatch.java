@@ -29,6 +29,8 @@ package weka.core.code;
 public class InstantiationWithTryCatch
   extends Instantiation {
 
+  private static final long serialVersionUID = -404041602856749882L;
+
   /**
    * Returns the name of the conversion scheme.
    *

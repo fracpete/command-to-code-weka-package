@@ -20,8 +20,10 @@
 
 package weka.core.code;
 
+import java.io.Serializable;
+
 public interface Converter
-  extends Comparable<Converter> {
+  extends Serializable, Comparable<Converter> {
 
   /**
    * Returns the name of the conversion scheme.

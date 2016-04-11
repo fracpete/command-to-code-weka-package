@@ -33,6 +33,8 @@ import weka.core.Utils;
 public class Instantiation
   extends AbstractConverter {
 
+  private static final long serialVersionUID = -4724000142023362577L;
+
   /**
    * Returns the name of the conversion scheme.
    *
