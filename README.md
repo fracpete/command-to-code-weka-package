@@ -15,6 +15,8 @@ Available converters
 * **Java String** -- simply escapes the command-line and generates a statement 
   using a String.
 * **String Array** -- fills a String array with the options from the command.
+* **Test class** -- generates a little test class that instantiates the command
+  including the necessary imports.
 
 
 Releases
