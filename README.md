@@ -46,7 +46,7 @@ Use the following dependency to include it in your Maven project:
     <dependency>
       <groupId>com.github.fracpete</groupId>
       <artifactId>command-to-code-weka-packae</artifactId>
-      <version>2016.4.11</version>
+      <version>2016.4.13</version>
     </dependency>
 ```
 
