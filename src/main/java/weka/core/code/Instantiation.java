@@ -20,8 +20,6 @@
 
 package weka.core.code;
 
-import weka.core.ClassDiscovery;
-import weka.core.OptionHandler;
 import weka.core.Utils;
 
 /**
@@ -65,20 +63,17 @@ public class Instantiation
    */
   protected String convert(String cmd, boolean quiet) {
     String	result;
-    String[]	options;
     String	cmdOptions;
     Class	cls;
 
     result = null;
 
     try {
-      options = Utils.splitOptions(cmd);
-      cls     = Class.forName(options[0]);
-      result  = cls.getName() + " " + cls.getSimpleName().toLowerCase()
+      cls        = CodeHelper.classFromCommand(cmd);
+      cmdOptions = CodeHelper.optionsStringFromCommand(cmd);
+      result     = cls.getName() + " " + cls.getSimpleName().toLowerCase()
 	+ " = new " + cls.getName() + "();";
-      if (ClassDiscovery.hasInterface(OptionHandler.class, cls)) {
-	options[0] = "";
-	cmdOptions = Utils.joinOptions(options);
+      if (CodeHelper.isOptionHandler(cmd)) {
 	if (cmdOptions.trim().length() > 0)
 	  result += "\n" + cls.getSimpleName().toLowerCase() + ".setOptions(weka.core.Utils.splitOptions(\"" + Utils.backQuoteChars(cmdOptions) + "\"));";
       }
