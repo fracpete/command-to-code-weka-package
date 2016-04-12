@@ -36,3 +36,40 @@ For more information on how to install the package, see:
 
 http://weka.wikispaces.com/How+do+I+use+the+package+manager%3F
 
+
+Maven
+-----
+
+Use the following dependency to include it in your Maven project:
+
+```
+    <dependency>
+      <groupId>com.github.fracpete</groupId>
+      <artifactId>command-to-code-weka-packae</artifactId>
+      <version>2016.4.11</version>
+    </dependency>
+```
+
+
+Code
+----
+
+You can use the following class (derived from `javax.swing.JPanel`) in your 
+Swing GUI:
+
+```
+weka.gui.CommandToCodePanel
+```
+
+You can use a converter to generate code on the fly:
+
+```java
+import weka.core.code.StringArray;
+...
+String cmd = "...";   // command from somewhere
+StringArray conv = new StringArray();
+if (conv.handles(cmd)) {
+  String code = conv.convert(cmd);
+  System.out.println(code);
+}
+```
