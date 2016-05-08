@@ -14,7 +14,7 @@
  */
 
 /**
- * weka.gui.CommandToCodeMenuItem.java
+ * CommandToCode.java
  * Copyright (C) 2016 University of Waikato, Hamilton, NZ
  */
 
