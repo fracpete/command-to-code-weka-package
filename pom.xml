@@ -5,7 +5,7 @@
 
   <groupId>com.github.fracpete</groupId>
   <artifactId>command-to-code-weka-package</artifactId>
-  <version>2016.5.8-SNAPSHOT</version>
+  <version>2016.5.8</version>
   <packaging>jar</packaging>
 
   <name>command-to-code</name>
