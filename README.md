@@ -24,6 +24,7 @@ Releases
 
 Click on one of the following links to download the corresponding Weka package:
 
+* [2017.10.9](https://github.com/fracpete/command-to-code-weka-package/releases/download/v2017.10.9/command-to-code-2017.10.9.zip) (Weka >= 3.9.0)
 * [2016.5.8](https://github.com/fracpete/command-to-code-weka-package/releases/download/v2016.5.8/command-to-code-2016.5.8.zip) (Weka >= 3.9.0)
 * [2016.4.13](https://github.com/fracpete/command-to-code-weka-package/releases/download/v2016.4.13/command-to-code-2016.4.13.zip) (Weka >= 3.7.12)
 * [2016.4.11](https://github.com/fracpete/command-to-code-weka-package/releases/download/v2016.4.11/command-to-code-2016.4.11.zip)
@@ -47,7 +48,7 @@ Use the following dependency to include it in your Maven project:
     <dependency>
       <groupId>com.github.fracpete</groupId>
       <artifactId>command-to-code-weka-packae</artifactId>
-      <version>2016.5.8</version>
+      <version>2017.10.9</version>
     </dependency>
 ```
 
