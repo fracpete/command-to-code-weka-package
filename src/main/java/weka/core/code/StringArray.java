@@ -13,9 +13,9 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
+/*
  * StringArray.java
- * Copyright (C) 2016 University of Waikato, Hamilton, NZ
+ * Copyright (C) 2016-2017 University of Waikato, Hamilton, NZ
  */
 
 package weka.core.code;
@@ -70,13 +70,21 @@ public class StringArray
 
     try {
       options = Utils.splitOptions(cmd);
-      result.append("String[] options = new String[").append(options.length).append("];");
+      result.append("String[] options1 = new String[").append(options.length).append("];");
       for (i = 0; i < options.length; i++) {
 	result.append("\n");
 	result.append("options[").append(i).append("] = \"");
 	result.append(Utils.backQuoteChars(options[i]));
 	result.append("\";");
       }
+      result.append("\n\n");
+      result.append("String[] options2 = new String[]{\n");
+      for (i = 0; i < options.length; i++) {
+	result.append("  \"");
+        result.append(Utils.backQuoteChars(options[i]));
+	result.append("\",\n");
+      }
+      result.append("};");
     }
     catch (Exception e) {
       System.err.println("Failed to parse command-line!");
