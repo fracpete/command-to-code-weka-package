@@ -13,9 +13,9 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
+/*
  * CommandToCodePanel.java
- * Copyright (C) 2016 University of Waikato, Hamilton, NZ
+ * Copyright (C) 2016-2017 University of Waikato, Hamilton, NZ
  */
 
 package weka.gui;
@@ -307,6 +307,7 @@ public class CommandToCodePanel
     }
 
     m_TextCode.setText(conv.convert(cmd));
+    m_TextCode.setCaretPosition(0);
   }
 
   /**
